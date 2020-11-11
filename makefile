@@ -26,7 +26,7 @@ C_COMPILER=clang
 endif
 
 UNITY_ROOT= Unity
-CODE_ROOT= sort
+CODE_ROOT= Sorts
 
 CFLAGS=-std=c99
 CFLAGS += -Wall
@@ -54,13 +54,13 @@ SRC_FILES1=\
   $(CODE_ROOT)/test/test_runners/all_tests.c
 INC_DIRS=-Isrc -I$(UNITY_ROOT)/src -I$(UNITY_ROOT)/extras/fixture/src
 SYMBOLS=
-all: clean cppcheck compile UnitTests clean compile valgrind clean addressSanitizer clean cov
+all: clean cppcheck compile UnitTests clean compile valgrind clean cov
 
 cppcheck:
 	@echo "  "
 	@echo "  "
 	@echo "********  cppcheck  *******"
-	cppcheck sort/src/* sort/test/*
+	cppcheck sorts/src/* sorts/test/*
 
 compile:
 	@echo "  "
@@ -92,14 +92,6 @@ cov:
 	gcov ***.gcno -m
 	gcovr -r . --html --html-details -o CoverRelatorio/gcoverage.html
 	rm -fr $(ALL) *.o cov* *.dSYM *.gcda *.gcno *.gcov
-
-addressSanitizer:
-	@echo "  "
-	@echo "  "
-	@echo "********  addressSanitizer  *******"
-	$(C_COMPILER) $(CFLAGS) -fsanitize=address -fno-omit-frame-pointer $(INC_DIRS) $(SYMBOLS) $(SRC_FILES1) -o $(TARGET1)
-	./all_tests.out heap_leak
-	./all_tests.out heap_buffer_overflow
 
 clean:
 	@echo "  "
