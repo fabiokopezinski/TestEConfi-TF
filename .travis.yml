@@ -1,0 +1,20 @@
+sudo: false
+language: c
+compiler:
+  - gcc
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - gcc
+      - valgrind
+      - cppcheck
+      - gcovr
+install:
+  - "[ $GCC = gcc ] && export GCC=gcc || true"
+script:
+  - make clean cppcheck
+  - make clean compile run
+  - make clean cov
+  - make clean compile valgrind
