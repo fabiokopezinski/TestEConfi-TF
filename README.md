@@ -7,7 +7,7 @@ Test results
 
 
 ### Cobertura
- - **[Relatório geral](https://github.com/fabiokopezinski/TestEConfi-TF/tree/main/CoverRelatorio/gcoverage.html)**
+ - **[Relatório geral](https://htmlpreview.github.io/?https://github.com/fabiokopezinski/TestEConfi-TF/blob/main/CoverRelatorio/gcoverage.html)**
 
 
 
