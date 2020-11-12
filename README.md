@@ -1,10 +1,15 @@
 Teste e Confiabilidade de Sistemas do Curso de Engenharia de Computação da PUCRS 
 =
-Simple Travis example for C using GCC compiler based on the identifier program presented by Delamaro et al. "Introdução ao Teste de Software". Elsevier. 2007.
 
-Test results:
-
+Test results
+=
 [![Build Status](https://travis-ci.org/fabiokopezinski/TestEConfi-TF.svg?branch=main)](https://travis-ci.org/fabiokopezinski/TestEConfi-TF)
+
+
+### Cobertura
+ - **[Relatório geral](https://github.com/fabiokopezinski/TestEConfi-TF/tree/main/CoverRelatorio/gcoverage.html)**
+
+
 
 Important files:
 
