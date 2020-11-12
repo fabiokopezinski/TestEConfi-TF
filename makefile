@@ -60,7 +60,7 @@ cppcheck:
 	@echo "  "
 	@echo "  "
 	@echo "********  cppcheck  *******"
-	cppcheck sorts/src/* sorts/test/*
+	cppcheck Sorts/src/*
 
 compile:
 	@echo "  "
