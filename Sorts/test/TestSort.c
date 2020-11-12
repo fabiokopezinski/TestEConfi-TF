@@ -11,6 +11,9 @@ void selection_sort(int *vet, int tam);
 void quick_sort(int vet[], int left, int right);
 void heap_sort(int vet[], int n);
 int* sort_array(int *vet, int size, int method);
+double get_elapsed_time();
+int get_swaps();
+int get_comparisons();
 
 
 TEST_GROUP(Sort);
@@ -110,6 +113,17 @@ TEST(Sort,InsertSortWhenHaveTwoDifferentNumbers){
 	}
 }
 
+TEST(Sort,InsertSortWorst){
+	int list[]={1,2,2,1};
+	int *expected=sort_array(list,SIZEARRAY-1,1);
+
+	for (int i = 0; i < SIZEARRAY; ++i)
+	{
+		TEST_ASSERT_EQUAL(expected[i],list[i]);
+	}
+}
+
+
 /*	SHELL SORT*/
 
 
@@ -151,6 +165,20 @@ TEST(Sort,QuickSortWhenHaveAListOfChars){
 	
 }
 
+TEST(Sort,QuickSortWorst){
+	
+	int list[SIZEARRAY]={1,3,4,2};
+	int *expected=sort_array(list,SIZEARRAY-1,3);
+	
+	for (int i = 0; i < SIZEARRAY; ++i)
+	{
+		TEST_ASSERT_EQUAL(expected[i],list[i]);
+	}
+	
+}
+
+
+
 /*HEAP SORT*/
 
 TEST(Sort,HeapSortWhenHaveAListOfChars){
@@ -163,4 +191,28 @@ TEST(Sort,HeapSortWhenHaveAListOfChars){
 		TEST_ASSERT_EQUAL(expected[i],list[i]);
 	}
 	
+}
+
+TEST(Sort,HeapSortWorst){
+	
+	int list[SIZEARRAY]={1,3,4,2};
+	int *expected=sort_array(list,SIZEARRAY-1,4);
+	
+	for (int i = 0; i < SIZEARRAY; ++i)
+	{
+		TEST_ASSERT_EQUAL(expected[i],list[i]);
+	}
+	
+}
+
+TEST(Sort,GetElapsed){
+	get_elapsed_time();
+}
+
+TEST(Sort,GetSwaps){
+	get_swaps();
+}
+
+TEST(Sort,GetComparisons){
+	get_comparisons();
 }

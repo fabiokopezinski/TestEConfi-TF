@@ -14,6 +14,7 @@ TEST_GROUP_RUNNER(Sort){
 	RUN_TEST_CASE(Sort,InsertSortWhenHaveDuplicatedValues);
 	RUN_TEST_CASE(Sort,InsertSortWhenSortingNumberNegative);
 	RUN_TEST_CASE(Sort,InsertSortWhenHaveTwoDifferentNumbers);
+	RUN_TEST_CASE(Sort,InsertSortWorst);
 
 	/*SHELL SORT*/
 
@@ -24,8 +25,14 @@ TEST_GROUP_RUNNER(Sort){
 
 	/*QUICK SORT*/
 	RUN_TEST_CASE(Sort,QuickSortWhenHaveAListOfChars);
+	RUN_TEST_CASE(Sort,QuickSortWorst);
 
 	/*HEAP SORT*/
 	RUN_TEST_CASE(Sort,HeapSortWhenHaveAListOfChars);
+	RUN_TEST_CASE(Sort,HeapSortWorst);
+
+	RUN_TEST_CASE(Sort,GetElapsed);
+	RUN_TEST_CASE(Sort,GetSwaps);
+	RUN_TEST_CASE(Sort,GetComparisons);
 
 }
