@@ -25,59 +25,45 @@ TEST_SETUP(Sort){
 TEST_TEAR_DOWN(Sort){
 
 }
-TEST(Sort,TEST_WhenHaveDuplicatedValues){
-		
-
-	int list[]={1,2,3,1};
-	
-	int *expected=sort_array(list,SIZEARRAY,5);
-
-	for (int i = 0; i < SIZEARRAY; ++i)
-	{
-		TEST_ASSERT_EQUAL(expected[i],list[i]);
-	}
-
-}
 
 TEST(Sort,WhenSortingNumberNegative){
-	int list[]={-1,3,2,4};
-	int *expected=sort_array(list,SIZEARRAY,5);
-
+	int list[SIZEARRAY]={-1,3,2,4};
+	int expected[SIZEARRAY]={-1,2,3,4};
+	int *retur=sort_array(list,SIZEARRAY,5);
 	for (int i = 0; i < SIZEARRAY; ++i)
 	{
-		TEST_ASSERT_EQUAL(expected[i],list[i]);
+		TEST_ASSERT_EQUAL(expected[i],retur[i]);
 	}
 }
 
-TEST(Sort,WhenHaveTwoDifferentNumbers){
-	int list[]={1,2,2,1};
-	int *expected=sort_array(list,SIZEARRAY,5);
-
+TEST(Sort,WhenHaveOneNumbersIguals){
+	int list[SIZEARRAY]={1,2,3,1};
+	int *expected[SIZEARRAY]={1,1,2,3};
+	int *retur=sort_array(list,SIZEARRAY,5);
 	for (int i = 0; i < SIZEARRAY; ++i)
 	{
-		TEST_ASSERT_EQUAL(expected[i],list[i]);
+		TEST_ASSERT_EQUAL(expected[i],retur[i]);
 	}
 }
-
-TEST(Sort,WhenHaveAListOfChars){
-	int list[SIZEARRAY]={'a','c','d','b'};
-	int *expected=sort_array(list,SIZEARRAY,5);
-
+TEST(Sort,SingleTest){
+	int list[SIZEARRAY]={1,2,5,4};
+	int expected[SIZEARRAY]={1,2,4,5};
+	int *retur=sort_array(list,SIZEARRAY,5);
 	for (int i = 0; i < SIZEARRAY; ++i)
 	{
-		TEST_ASSERT_EQUAL(expected[i],list[i]);
+		TEST_ASSERT_EQUAL(expected[i],retur[i]);
 	}
 }
 
 
 TEST(Sort,SortWorst){
 
-	int list[]={1,2,2,1};
-	int *expected=sort_array(list,SIZEARRAY-1,1);
-
+	int list[SIZEARRAY]={5,4,2,1};
+	int expected[SIZEARRAY]={1,2,4,5};
+	int *retur=sort_array(list,SIZEARRAY,5);
 	for (int i = 0; i < SIZEARRAY; ++i)
 	{
-		TEST_ASSERT_EQUAL(expected[i],list[i]);
+		TEST_ASSERT_EQUAL(expected[i],retur[i]);
 	}
 }
 
@@ -85,289 +71,229 @@ TEST(Sort,SortWorst){
 
   /*    INSERTION SORT              */
 
-
-TEST(Sort,InsertSortWhenHaveAListOfChars){
-	
-	int list[SIZEARRAY]={1,3,4,2};
-	int *expected=sort_array(list,SIZEARRAY,1);
+TEST(Sort,InsertSortWhenHaveDuplicatedValues){
+	int list[SIZEARRAY]={1,2,3,1};
+	int expected[SIZEARRAY]={1,1,2,3};
+	int *retur=sort_array(list,SIZEARRAY,1);
 	for (int i = 0; i < SIZEARRAY; ++i)
 	{
-		TEST_ASSERT_EQUAL(expected[i],list[i]);
-	}
-}
-
-	TEST(Sort,InsertSortWhenHaveDuplicatedValues){
-	int list[]={1,2,3,1};
-	int *expected=sort_array(list,SIZEARRAY,1);
-
-	for (int i = 0; i < SIZEARRAY; ++i)
-	{
-		TEST_ASSERT_EQUAL(expected[i],list[i]);
+		TEST_ASSERT_EQUAL(expected[i],retur[i]);
 	}
 
 }
 
 TEST(Sort,InsertSortWhenSortingNumberNegative){
-	int list[]={-1,3,2,4};
-	int *expected=sort_array(list,SIZEARRAY,1);
-
+	int list[SIZEARRAY]={-1,3,2,4};
+	int expected[]={-1,2,3,4};
+	int *retur=sort_array(list,SIZEARRAY,1);
 	for (int i = 0; i < SIZEARRAY; ++i)
 	{
-		TEST_ASSERT_EQUAL(expected[i],list[i]);
+		TEST_ASSERT_EQUAL(expected[i],retur[i]);
 	}
 }
-
-TEST(Sort,InsertSortWhenHaveTwoDifferentNumbers){
-	int list[]={1,2,2,1};
-	int *expected=sort_array(list,SIZEARRAY,1);
-
+TEST(Sort,InsertSortSingleTest){
+	int list[SIZEARRAY]={1,4,2,5};
+	int expected[SIZEARRAY]={1,2,4,5};
+	int *retur=sort_array(list,SIZEARRAY,1);
 	for (int i = 0; i < SIZEARRAY; ++i)
 	{
-		TEST_ASSERT_EQUAL(expected[i],list[i]);
+		TEST_ASSERT_EQUAL(expected[i],retur[i]);
 	}
 }
 
 TEST(Sort,InsertSortWorst){
-	int list[]={1,2,2,1};
-	int *expected=sort_array(list,SIZEARRAY-1,1);
-
+	int list[SIZEARRAY]={4,3,2,1};
+	int expected[SIZEARRAY]={1,2,3,4};
+	int *retur=sort_array(list,SIZEARRAY,1);
 	for (int i = 0; i < SIZEARRAY; ++i)
 	{
-		TEST_ASSERT_EQUAL(expected[i],list[i]);
+		TEST_ASSERT_EQUAL(expected[i],retur[i]);
 	}
 }
-
 
 /*	SHELL SORT*/
 
 
-TEST(Sort,ShellSortWhenHaveAListOfChars){
-	
-	int list[SIZEARRAY]={1,3,4,2};
-	int *expected=sort_array(list,SIZEARRAY,2);
-
-	for (int i = 0; i < SIZEARRAY; ++i)
-	{
-		TEST_ASSERT_EQUAL(expected[i],list[i]);
-	}
-}
-
-
 TEST(Sort,ShellSortWhenHaveDuplicatedValues){
-	int list[]={1,2,3,1};
-	int *expected=sort_array(list,SIZEARRAY,2);
-
+	int list[SIZEARRAY]={1,2,3,1};
+	int expected[SIZEARRAY]={1,1,2,3};
+	int *retur=sort_array(list,SIZEARRAY,2);
 	for (int i = 0; i < SIZEARRAY; ++i)
 	{
-		TEST_ASSERT_EQUAL(expected[i],list[i]);
+		TEST_ASSERT_EQUAL(expected[i],retur[i]);
 	}
 
 }
 
 TEST(Sort,ShellSortWhenSortingNumberNegative){
-	int list[]={-1,3,2,4};
-	int *expected=sort_array(list,SIZEARRAY,2);
+	int list[SIZEARRAY]={-1,3,2,4};
+	int expected[SIZEARRAY]={-1,2,3,4};
+	int *retur=sort_array(list,SIZEARRAY,2);
 
 	for (int i = 0; i < SIZEARRAY; ++i)
 	{
-		TEST_ASSERT_EQUAL(expected[i],list[i]);
+		TEST_ASSERT_EQUAL(expected[i],retur[i]);
 	}
 }
 
-TEST(Sort,ShellSortWhenHaveTwoDifferentNumbers){
-	int list[]={1,2,2,1};
-	int *expected=sort_array(list,SIZEARRAY,2);
 
+TEST(Sort,ShellSingleSort){
+
+	int list[SIZEARRAY]={1,3,2,4};
+	int expected[SIZEARRAY]={1,2,3,4};
+	int *retur=sort_array(list,SIZEARRAY,2);
 	for (int i = 0; i < SIZEARRAY; ++i)
 	{
-		TEST_ASSERT_EQUAL(expected[i],list[i]);
+		TEST_ASSERT_EQUAL(expected[i],retur[i]);
 	}
 }
 
 TEST(Sort,ShellSortWorst){
-	int list[]={1,2,2,1};
-	int *expected=sort_array(list,SIZEARRAY-1,2);
-
+	int list[SIZEARRAY]={4,3,2,1};
+	int expected[SIZEARRAY]={1,2,3,4};
+	int *retur=sort_array(list,SIZEARRAY,2);
 	for (int i = 0; i < SIZEARRAY; ++i)
 	{
-		TEST_ASSERT_EQUAL(expected[i],list[i]);
+		TEST_ASSERT_EQUAL(expected[i],retur[i]);
 	}
 }
 
 
 /*SELECTION SORT*/
 
-TEST(Sort,SelectionSortWhenHaveAListOfChars){
-	
-	int list[SIZEARRAY]={1,3,4,2};
-	int *expected=sort_array(list,SIZEARRAY,0);
-	
-	for (int i = 0; i < SIZEARRAY; ++i)
-	{
-		TEST_ASSERT_EQUAL(expected[i],list[i]);
-	}
-}
-
-
-
 TEST(Sort,SelectionSortWhenHaveDuplicatedValues){
-	int list[]={1,2,3,1};
-	int *expected=sort_array(list,SIZEARRAY,0);
-
+	int list[SIZEARRAY]={1,2,3,1};
+	int *expected[SIZEARRAY]={1,1,2,3};
+	int *retur=sort_array(list,SIZEARRAY,0);
 	for (int i = 0; i < SIZEARRAY; ++i)
 	{
-		TEST_ASSERT_EQUAL(expected[i],list[i]);
+		TEST_ASSERT_EQUAL(expected[i],retur[i]);
 	}
 
 }
 
 TEST(Sort,SelectionSortWhenSortingNumberNegative){
-	int list[]={-1,3,2,4};
-	int *expected=sort_array(list,SIZEARRAY,0);
-
+	int list[SIZEARRAY]={-1,3,2,4};
+	int expected[SIZEARRAY]={-1,2,3,4};
+	int *retur=sort_array(list,SIZEARRAY,0);
 	for (int i = 0; i < SIZEARRAY; ++i)
 	{
-		TEST_ASSERT_EQUAL(expected[i],list[i]);
+		TEST_ASSERT_EQUAL(expected[i],retur[i]);
 	}
 }
 
-TEST(Sort,SelectionSortWhenHaveTwoDifferentNumbers){
-	int list[]={1,2,2,1};
-	int *expected=sort_array(list,SIZEARRAY,0);
-
-	for (int i = 0; i < SIZEARRAY; ++i)
-	{
-		TEST_ASSERT_EQUAL(expected[i],list[i]);
-	}
-}
 
 TEST(Sort,SelectionSortWorst){
-	int list[]={1,2,2,1};
-	int *expected=sort_array(list,SIZEARRAY-1,0);
-
+	int list[SIZEARRAY]={4,3,2,1};
+	int expected[SIZEARRAY]={1,2,3,4};
+	int *retur=sort_array(list,SIZEARRAY,0);
 	for (int i = 0; i < SIZEARRAY; ++i)
 	{
-		TEST_ASSERT_EQUAL(expected[i],list[i]);
+		TEST_ASSERT_EQUAL(expected[i],retur[i]);
+	}
+}
+
+TEST(Sort,SelectionSingleSort){
+	int list[SIZEARRAY]={3,4,1,5};
+	int expected[SIZEARRAY]={1,3,4,5};
+	int *retur=sort_array(list,SIZEARRAY,0);
+	for (int i = 0; i < SIZEARRAY; ++i)
+	{
+		TEST_ASSERT_EQUAL(expected[i],retur[i]);
 	}
 }
 
 
 /*QUICK SORT*/
 
-TEST(Sort,QuickSortWhenHaveAListOfChars){
-	
-	int list[SIZEARRAY]={1,3,4,2};
-	int *expected=sort_array(list,SIZEARRAY,3);
-	
-	for (int i = 0; i < SIZEARRAY; ++i)
-	{
-		TEST_ASSERT_EQUAL(expected[i],list[i]);
-	}
-	
-}
-
-
 TEST(Sort,QuickSortWhenHaveDuplicatedValues){
-	int list[]={1,2,3,1};
-	int *expected=sort_array(list,SIZEARRAY,3);
-
+	int list[SIZEARRAY]={1,2,3,1};
+	int expected[SIZEARRAY]={1,1,2,3};
+	int *retur=sort_array(list,SIZEARRAY-1,3);
 	for (int i = 0; i < SIZEARRAY; ++i)
 	{
-		TEST_ASSERT_EQUAL(expected[i],list[i]);
+		TEST_ASSERT_EQUAL(expected[i],retur[i]);
 	}
 
 }
 
 TEST(Sort,QuickSortWhenSortingNumberNegative){
-	int list[]={-1,3,2,4};
-	int *expected=sort_array(list,SIZEARRAY,3);
+	int list[SIZEARRAY]={-1,3,2,4};
+	int expected[SIZEARRAY]={-1,2,3,4};
+	int *retur=sort_array(list,SIZEARRAY-1,3);
 
 	for (int i = 0; i < SIZEARRAY; ++i)
 	{
-		TEST_ASSERT_EQUAL(expected[i],list[i]);
-	}
-}
-
-TEST(Sort,QuickSortWhenHaveTwoDifferentNumbers){
-	int list[]={1,2,2,1};
-	int *expected=sort_array(list,SIZEARRAY,3);
-
-	for (int i = 0; i < SIZEARRAY; ++i)
-	{
-		TEST_ASSERT_EQUAL(expected[i],list[i]);
+		TEST_ASSERT_EQUAL(expected[i],retur[i]);
 	}
 }
 
 TEST(Sort,QuickSortWorst){
 	
-	int list[SIZEARRAY]={1,3,4,2};
-	int *expected=sort_array(list,SIZEARRAY-1,3);
+	int list[SIZEARRAY]={3,2,1,0};
+	int expected[SIZEARRAY]={0,1,2,3};
+	int *retur=sort_array(list,SIZEARRAY-1,3);
 	
 	for (int i = 0; i < SIZEARRAY; ++i)
 	{
-		TEST_ASSERT_EQUAL(expected[i],list[i]);
+		TEST_ASSERT_EQUAL(expected[i],retur[i]);
 	}
 	
+}
+
+TEST(Sort,QuickSortSingle){
+	int list[SIZEARRAY]={3,1,2,4};
+	int expected[SIZEARRAY]={1,2,3,4};
+	int *retur=sort_array(list,SIZEARRAY-1,3);
+	
+	for (int i = 0; i < SIZEARRAY; ++i)
+	{
+		TEST_ASSERT_EQUAL(expected[i],retur[i]);
+	}
 }
 
 
 /*HEAP SORT*/
 
-TEST(Sort,HeapSortWhenHaveAListOfChars){
-	
-	int list[SIZEARRAY]={1,3,4,2};
-	int *expected=sort_array(list,SIZEARRAY,4);
-	
-	for (int i = 0; i < SIZEARRAY; ++i)
-	{
-		TEST_ASSERT_EQUAL(expected[i],list[i]);
-	}
-	
-}
-
-
 TEST(Sort,HeapSortWhenHaveDuplicatedValues){
-	int list[]={1,2,3,1};
-	int *expected=sort_array(list,SIZEARRAY,4);
-
+	int list[SIZEARRAY]={1,2,3,1};
+	int expected[SIZEARRAY]={1,1,2,3};
+	int *retur=sort_array(list,SIZEARRAY,4);
 	for (int i = 0; i < SIZEARRAY; ++i)
 	{
-		TEST_ASSERT_EQUAL(expected[i],list[i]);
+		TEST_ASSERT_EQUAL(expected[i],retur[i]);
 	}
 
 }
 
 TEST(Sort,HeapSortWhenSortingNumberNegative){
-	int list[]={-1,3,2,4};
-	int *expected=sort_array(list,SIZEARRAY,4);
-
+	int list[SIZEARRAY]={-1,3,2,4};
+	int expected[SIZEARRAY]={-1,2,3,4};
+	int *retur=sort_array(list,SIZEARRAY,4);
 	for (int i = 0; i < SIZEARRAY; ++i)
 	{
-		TEST_ASSERT_EQUAL(expected[i],list[i]);
+		TEST_ASSERT_EQUAL(expected[i],retur[i]);
 	}
 }
-
-TEST(Sort,HeapSortWhenHaveTwoDifferentNumbers){
-	int list[]={1,2,2,1};
-	int *expected=sort_array(list,SIZEARRAY,4);
-
-	for (int i = 0; i < SIZEARRAY; ++i)
-	{
-		TEST_ASSERT_EQUAL(expected[i],list[i]);
-	}
-}
-
 
 TEST(Sort,HeapSortWorst){
-	
-	int list[SIZEARRAY]={1,3,4,2};
-	int *expected=sort_array(list,SIZEARRAY-1,4);
-	
+	int list[SIZEARRAY]={4,3,2,1};
+	int expected[SIZEARRAY]={1,2,3,4};
+	int *retur=sort_array(list,SIZEARRAY,4);
 	for (int i = 0; i < SIZEARRAY; ++i)
 	{
-		TEST_ASSERT_EQUAL(expected[i],list[i]);
+		TEST_ASSERT_EQUAL(expected[i],retur[i]);
 	}
-	
+}
+
+TEST(Sort,HeapSortSingle){
+	int list[SIZEARRAY]={3,4,2,1};
+	int expected[SIZEARRAY]={1,2,3,4};
+	int *retur=sort_array(list,SIZEARRAY,4);
+	for (int i = 0; i < SIZEARRAY; ++i)
+	{
+		TEST_ASSERT_EQUAL(expected[i],retur[i]);
+	}
 }
 
 TEST(Sort,GetElapsed){
